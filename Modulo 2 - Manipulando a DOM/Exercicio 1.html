@@ -1,0 +1,27 @@
+<html>
+  <head>
+    <title> </title>
+  </head>
+  <body>
+    <button name="button" id="button" class="button">Square</button>
+    <div id="squares"></div>
+
+    <script>
+      var btnElement = document.querySelector('.button');
+      var squareElement= document.querySelector('#squares');
+
+      btnElement.onclick = function(){
+        var squares = document.createElement('div');
+
+        squares.style.width = "100px";
+        squares.style.height = "100px";
+        squares.style.backgroundColor = '#f00';
+        
+        squareElement.appendChild(squares);
+
+      }
+      
+    </script>
+  </body>
+
+</html>

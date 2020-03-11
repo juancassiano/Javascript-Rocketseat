@@ -1,0 +1,34 @@
+var listElement = document.querySelector('ul');
+var inputElement = document.querySelector('input');
+var btnElement = document.querySelector('.button');
+ 
+
+function adicionar(name){
+    
+    var linhaElement = document.createElement('li');
+    var nameElement = document.createTextNode(name);
+
+    linhaElement.appendChild(nameElement);
+    listElement.appendChild(linhaElement);
+  
+}
+
+function repository(){
+  var user = inputElement.value;
+  
+  var usuario = 'https://api.github.com/users/'+user+'/repos';
+  axios.get(usuario)
+  .then(function(response){
+    console.log(response);
+    response.data.map(item => {
+      adicionar( `${item.full_name} -> ${item.description} [${item.id}]`);
+    })
+  })
+  .catch(function (error) {
+    console.warn(error);
+  })
+}
+
+btnElement.onclick = function(){
+  repository();
+};

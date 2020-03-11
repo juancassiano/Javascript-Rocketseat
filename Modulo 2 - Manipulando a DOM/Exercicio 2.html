@@ -1,0 +1,46 @@
+<html>
+  <head>
+    <title> </title>
+  </head>
+  <body>
+    <button name="button" id="button" class="button">Square</button>
+    <div id="squares"></div>
+
+    <script>
+      var btnElement = document.querySelector('.button');
+      var squareElement= document.querySelector('#squares');
+
+      function getRandomColor() {
+        var letters = "0123456789ABCDEF";
+        var color = "#";
+        for (var i = 0; i < 6; i++) {
+        color += letters[Math.floor(Math.random() * 16)];
+        }
+        return color;
+        }
+      var newColor = getRandomColor(); // #E943F0
+ 
+     btnElement.onclick = function(){
+        var squares = document.createElement('div');
+       
+       
+        squares.style.width = "100px";
+        squares.style.height = "100px";
+        squares.style.backgroundColor = getRandomColor();
+        
+        squareElement.appendChild(squares);
+      
+      squares.onmouseover = function(){
+        squares.style.backgroundColor = getRandomColor();
+      };
+      squares.onmouseleave = function(){
+        squares.style.backgroundColor = getRandomColor();
+      }
+      } 
+      
+      
+      
+    </script>
+  </body>
+
+</html>

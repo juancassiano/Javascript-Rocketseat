@@ -1,0 +1,36 @@
+<html>
+  <head>
+    <title> </title>
+  </head>
+  <body>
+    <input type="text" name="nome">
+    <button onclick="adicionar()">adicionar()"</button>
+
+    <ul></ul>
+    
+    <script>
+      
+      var nomes = ["Diego", "Gabriel", "Lucas"];
+      var listElement = document.querySelector('ul');
+      var inputElement = document.querySelector('input');
+      
+      function addName(name){
+        var arrayElement = document.createElement('li');
+        var nameElement = document.createTextNode(name);
+          
+        arrayElement.appendChild(nameElement);
+        listElement.appendChild(arrayElement);
+      }
+
+      function adicionar(){
+        addName(inputElement.value);
+        inputElement.value="";
+      };
+
+      for(nome of nomes){
+        addName(nome);
+      }
+    </script>
+  </body>
+
+</html>
